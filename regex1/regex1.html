@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex</title>
+    <style>
+        div{
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: coral;
+            border-radius: 10%;
+        }
+        p{
+            text-align: center;
+        }
+       
+    </style>
+   
+</head>
+<body>
+    <h1 style="text-align: center;"><u>REGEX FUNCTIONS</u></h1>
+    <div  style=" text-align: center; background-color: gray; border-radius: 0%;"  >
+    <div class="first">
+        <h class="head"> For the given array, filter all elements that do not contain 'e' </h>
+        <p id="p1"></p>
+        <button class="btn" onclick="compute1();">TEST</button>
+    </div>
+    <div class="second">
+        <h class="head"> For the given array, filter all elements that contains both 'e' and 'n'</h>
+        <p id="p2"></p>
+        <button class="btn" onclick="compute2();">TEST</button>
+    </div>
+    <div class="third">
+        <h class="head"> For the given input array, filter all elements that start with 'den' or end with 'ly'</i>:</h>
+        <p id="p3"></p>
+        <button class="btn" onclick="compute3();">TEST</button>
+    </div>
+    <div class="fourth">
+        <h class="head">For the given input array, replace 'hand' with 'X' for all words that start with 'hand' followed by at least one word character</h>
+        <p id="p4"></p>
+        <button class="btn" onclick="compute4();">TEST</button>
+    </div>
+    <div class="fifth">
+        <h class="head">For the given input strings, replace all occurrences of 'removed' or 'reed' or 'received' or 'refused' with 'X'</h>
+        <p id="p5"></p>
+        <button class="btn" onclick="compute5();">TEST</button>
+    </div>
+    <div class="sixth">
+        <h class="head">Replace all occurrences of '\e' with 'e' </h>
+        <p id="p6"></p>
+        <button class="btn" onclick="compute6();">TEST</button>
+    </div>
+    </div>
+
+    <script>
+
+        function compute1(){
+            let arr=['news','sit','car','seat','phone','rug'];
+            let r= 'e'
+            let pattern=new RegExp(r);
+         const result=arr.filter(item=>!pattern.test(item))
+          document.getElementById("p1").innerHTML="initial strings in the array : "+arr+"<br>"+"resultant array : "+result;
+        }
+
+
+        function compute2(){
+         let arr=['kitten','elephant','user','kelly','sit','chair'];
+            let pattern1=new RegExp(/^([a-z]*)e([a-z]*)n([a-z]*)$/);
+            let pattern2=new RegExp(/^([a-z]*)n([a-z]*)e([a-z]*)$/);
+            let result=new RegExp(pattern1.source+ "|" + pattern2.source);
+         const finalarr=arr.filter(item=>result.test(item))
+          document.getElementById("p2").innerHTML="initial strings in the array : "+arr+"<br>"+"resultant array : "+finalarr;
+        }
+
+
+        function compute3(){
+            let arr=['surely','dense','suddenly','dentist','butterfly','stunt'];
+            let pattern1=new RegExp(/^den\w*$/);
+            let pattern2=new RegExp(/^\w*ly$/);
+            let result=new RegExp(pattern1.source+ "|" + pattern2.source);
+         const finalarr=arr.filter(item=>result.test(item))
+          document.getElementById("p3").innerHTML="initial strings in the array : "+arr+"<br>"+"resultant array : "+finalarr;
+        }
+
+
+        function compute4(){
+         let pattern=/^hand/g; 
+         let check=/^hand\w+$/;                                                                                       ;
+         pattern.compile(pattern);
+            let arr=['handshake','sand','hanfle','fall','handed','fly'];
+         const result=arr.map(item=>{
+             if(check.test(item))
+             return item.replace(pattern,"X")
+             else return item})
+            document.getElementById("p4").innerHTML="initial strings in the array : "+arr+"<br>"+"resultant array :"+result;
+         }
+
+
+        function compute5(){
+            let str= "thought i could have refused the offer that i had received but i removed the reed";
+            let p=/removed|reed|refused|received/gi;
+            p.compile(p);
+           let result=str.replace(p,"X");
+            document.getElementById("p5").innerHTML="initial string : "+str+"<br>"+"resultant string : "+result;
+     
+        }
+
+
+        function compute6(){
+         let str= "th\\er\\e ar\\e common asp\\ects among th\\e alt\\ernations";
+            let p=/\\e/gi;
+            p.compile(p);
+           let result=str.replace(p,"e");
+            document.getElementById("p6").innerHTML="initial strings in the array : "+str+"<br>"+"resultant array : "+result; 
+        }
+         </script>
+</body>
+</html>

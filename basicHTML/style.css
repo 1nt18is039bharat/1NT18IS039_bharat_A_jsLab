@@ -1,0 +1,56 @@
+table{
+    border: 4px solid slateblue;
+     width: 100%;
+     background-color: cyan;
+}
+tr{
+    margin-left: auto;
+     margin-right: auto;
+}
+th{
+    width: 50%; 
+    border: 4px solid slateblue;
+}
+
+td{
+    width: 50%; 
+    border: 4px solid slateblue;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid blue;
+    border-radius: 5%;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+form{
+    width: 50%;
+    background-color: lavender;
+    padding: 40px;
+    border: 10px double silver;
+}
+label{
+    margin-left: auto;
+    text-align: center;
+    width: 50px;
+}
+.second{
+    background-color: cornflowerblue;
+}
+h1{
+    text-align: center;
+}
+.third{
+    background-color: deepskyblue;
+
+}
+h2{
+    text-align: center;
+}
